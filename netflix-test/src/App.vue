@@ -1,16 +1,53 @@
 <template>
   <div id="app">
+    <Loader />
     <router-view />
   </div>
 </template>
 
+<script>
+import Loader from "@/components/loader/Loader";
+import { METRICS_KEY } from "@/constants/keys";
+import StorageService from "@/storage";
+import Metrics from "@/storage/models/metrics.model";
+const { metrics } = Metrics;
+
+export default {
+  components: {
+    Loader
+  },
+
+  mounted() {
+    if (!StorageService.getMetrics(METRICS_KEY))
+      StorageService.registerMetrics(METRICS_KEY, metrics);
+  }
+};
+</script>
+
 <style lang="scss">
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html,
+body {
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 #nav {
   padding: 30px;

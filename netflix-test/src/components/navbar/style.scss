@@ -1,0 +1,40 @@
+.nav-bar-container {
+  padding: 10px;
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-bar-content-left {
+    display: flex;
+
+    .header-logo {
+      color: red;
+      font-weight: bold;
+    }
+
+    .links {
+      margin-left: 50px;
+
+      ul {
+        list-style: none;
+        display: flex;
+
+        li {
+          margin: 5px;
+          
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-bar-content-right {
+    margin-right: 50px;
+    margin-top: 5px;
+    color: white;
+  }
+
+}

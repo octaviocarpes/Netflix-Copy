@@ -1,0 +1,15 @@
+.movie-suggestion-container {
+  height: 100%;
+
+  .title {
+    color: white;
+    text-align: left;
+    margin-left: 20px;
+    position: relative;
+    bottom: 80px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
