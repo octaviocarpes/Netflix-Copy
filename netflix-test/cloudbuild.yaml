@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['build']
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--tag=se-test'
+  - '--file=Dockerfile'
+  - '.'
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'run'
+  - '-p 8080:8080'
+  - 'se-test'
