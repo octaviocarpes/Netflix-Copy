@@ -1,9 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
-  dir: 'Frontend-Engineering-Test/netflix-test'
+  dir: 'netflix-test'
 - name: 'gcr.io/cloud-builders/npm'
-  dir: '/netflix-test'
+  dir: 'netflix-test'
   args: ['build']
 - name: 'gcr.io/cloud-builders/docker'
   args:
