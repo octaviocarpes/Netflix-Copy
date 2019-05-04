@@ -11,3 +11,5 @@ steps:
   - '--tag=se-test'
   - '--file=Dockerfile'
   - '.'
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'app.yaml', '--quiet']
