@@ -11,8 +11,3 @@ steps:
   - '--tag=se-test'
   - '--file=Dockerfile'
   - '.'
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'run'
-  - '-p 8080:8080'
-  - 'se-test'
