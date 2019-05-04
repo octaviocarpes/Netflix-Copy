@@ -85,15 +85,15 @@ export default {
     },
 
     saveRegisterMetrics() {
-      let Metrics = StorageService.getMetrics(METRICS_KEY);
-      Metrics.REGISTER_METRICS.registers++;
-      StorageService.registerMetrics(METRICS_KEY, Metrics);
+      let Metric = StorageService.getMetrics(METRICS_KEY);
+      Metric.REGISTER_METRICS.registers++;
+      StorageService.registerMetrics(METRICS_KEY, Metric);
     },
 
     saveLoginMetrics() {
-      let Metrics = StorageService.getMetrics(METRICS_KEY);
-      Metrics.LOGIN_METRICS.logins++;
-      StorageService.registerMetrics(METRICS_KEY, Metrics);
+      let Metric = StorageService.getMetrics(METRICS_KEY);
+      Metric.LOGIN_METRICS.logins++;
+      StorageService.registerMetrics(METRICS_KEY, Metric);
     }
   }
 };

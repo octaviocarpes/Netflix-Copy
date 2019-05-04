@@ -1,9 +1,19 @@
 <template>
-  <h1>Metrics</h1>
+  <div class="metrics-container">
+    <Navbar />
+    <h1>Metrics</h1>
+  </div>
 </template>
 
 <script>
-export default {};
+import Navbar from "@/components/navbar/Navbar";
+export default {
+  name: "Metrics",
+
+  components: {
+    Navbar
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
