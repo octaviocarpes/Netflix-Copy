@@ -10,37 +10,37 @@ export default new Router({
     {
       path: "/",
       name: "login",
-      component: () => import("./views/Login.vue")
+      component: () => import("./views/login/Login.vue")
     },
 
     {
       path: "/profile",
       name: "profile",
-      component: () => import("./views/Profile.vue")
+      component: () => import("./views/profile/Profile.vue")
     },
 
     {
       path: "/metrics",
       name: "metrics",
-      component: () => import("./views/Metrics.vue")
+      component: () => import("./views/metrics/Metrics.vue")
     },
 
     {
       path: "/movies",
       name: "movies",
-      component: () => import("./views/Movies.vue")
+      component: () => import("./views/movies/Movies.vue")
     },
 
     {
       path: "/player",
       name: "player",
-      component: () => import("./views/Player.vue")
+      component: () => import("./views/player/Player.vue")
     },
 
     {
       path: "*",
       name: "error",
-      component: () => import("./views/Error.vue")
+      component: () => import("./views/error/Error.vue")
     }
   ]
 });
