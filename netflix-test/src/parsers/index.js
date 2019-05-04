@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 export default {
-  parseVideos({ items }) {
+  parseMovies({ items }) {
     return items.map(item => {
       return {
         id: _.get(item, "id.videoId", ""),

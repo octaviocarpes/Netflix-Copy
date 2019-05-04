@@ -32,7 +32,7 @@ export default new Router({
     },
 
     {
-      path: "/player",
+      path: "/player/:id",
       name: "player",
       component: () => import("./views/player/Player.vue")
     },
