@@ -10,5 +10,13 @@ export default {
 
   getUser(key) {
     return ls.get(key);
+  },
+
+  getMetrics(key) {
+    return ls.get(key);
+  },
+
+  registerMetrics(key, metrics) {
+    ls.set(key, metrics);
   }
 };

@@ -35,6 +35,7 @@
 
 <script>
 import StorageService from "@/storage";
+import { METRICS_KEY } from "@/constants/keys";
 import store from "@/store";
 
 export default {
@@ -60,15 +61,30 @@ export default {
 
     registerUser() {
       StorageService.registerUser(this.login, this.password);
+      this.saveRegisterMetrics();
       this.toggleRegister();
     },
 
     performLogin() {
       const user = StorageService.getUser(btoa(this.login + this.password));
-      if (user) {
+      /* eslint-disable-next-line */
+      if (!!user) {
         store.dispatch("PERFORM_LOGIN", user);
+        this.saveLoginMetrics();
         this.$router.push("/movies");
       } else console.log("error");
+    },
+
+    saveRegisterMetrics() {
+      let Metrics = StorageService.getMetrics(METRICS_KEY);
+      Metrics.REGISTER_METRICS.registers++;
+      StorageService.registerMetrics(METRICS_KEY, Metrics);
+    },
+
+    saveLoginMetrics() {
+      let Metrics = StorageService.getMetrics(METRICS_KEY);
+      Metrics.LOGIN_METRICS.logins++;
+      StorageService.registerMetrics(METRICS_KEY, Metrics);
     }
   }
 };

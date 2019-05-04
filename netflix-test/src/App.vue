@@ -4,6 +4,19 @@
   </div>
 </template>
 
+<script>
+import { METRICS_KEY } from "@/constants/keys";
+import StorageService from "@/storage";
+import Metrics from "@/storage/models/metrics.model";
+const { metrics } = Metrics;
+
+export default {
+  mounted() {
+    StorageService.registerMetrics(METRICS_KEY, metrics);
+  }
+};
+</script>
+
 <style lang="scss">
 * {
   padding: 0px;
