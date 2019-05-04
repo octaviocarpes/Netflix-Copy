@@ -12,7 +12,8 @@ const { metrics } = Metrics;
 
 export default {
   mounted() {
-    StorageService.registerMetrics(METRICS_KEY, metrics);
+    if (!StorageService.getMetrics(METRICS_KEY))
+      StorageService.registerMetrics(METRICS_KEY, metrics);
   }
 };
 </script>

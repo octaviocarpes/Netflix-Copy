@@ -20,6 +20,9 @@
         {{ register ? "Sign Up" : "Sign In" }}
       </button>
     </form>
+    <div v-if="error" class="error">
+      <p>*Error signing in.</p>
+    </div>
     <div v-if="!register" class="remember-me">
       <input type="checkbox" name="remember-me" id="remember-me" />
       <p>Remember me</p>
@@ -45,7 +48,8 @@ export default {
     return {
       register: false,
       login: "",
-      password: ""
+      password: "",
+      error: false
     };
   },
 
@@ -72,7 +76,12 @@ export default {
         store.dispatch("PERFORM_LOGIN", user);
         this.saveLoginMetrics();
         this.$router.push("/movies");
-      } else console.log("error");
+      } else this.showLoginError();
+    },
+
+    showLoginError() {
+      this.error = true;
+      setTimeout(() => (this.error = false), 5000);
     },
 
     saveRegisterMetrics() {

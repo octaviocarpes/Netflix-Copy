@@ -62,6 +62,15 @@
     }
   }
 
+  .error {
+    p {
+      color: red;
+      font-size: 12px;
+      text-align: left;
+      margin-left: 10px;
+    }
+  }
+
   .remember-me {
     display: flex;
     margin-left: 10px;
