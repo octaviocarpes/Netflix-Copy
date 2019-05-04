@@ -5,11 +5,5 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   dir: 'netflix-test'
   args: ['run','build']
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'build'
-  - '--tag=se-test'
-  - '--file=Dockerfile'
-  - '.'
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', 'app.yaml', '--quiet']
