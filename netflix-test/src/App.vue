@@ -5,12 +5,20 @@
 </template>
 
 <style lang="scss">
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 #nav {
   padding: 30px;
