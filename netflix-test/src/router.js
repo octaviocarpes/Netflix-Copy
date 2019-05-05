@@ -1,9 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
+import StorageService from "@/storage";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -16,25 +17,49 @@ export default new Router({
     {
       path: "/profile",
       name: "profile",
-      component: () => import("./views/profile/Profile.vue")
+      component: () => import("./views/profile/Profile.vue"),
+      beforeEnter: (to, from, next) => {
+        const user = StorageService.getUserSession();
+        /* eslint-disable-next-line */
+        if (!!user) next();
+        else next("/");
+      }
     },
 
     {
       path: "/metrics",
       name: "metrics",
-      component: () => import("./views/metrics/Metrics.vue")
+      component: () => import("./views/metrics/Metrics.vue"),
+      beforeEnter: (to, from, next) => {
+        const user = StorageService.getUserSession();
+        /* eslint-disable-next-line */
+        if (!!user) next();
+        else next("/");
+      }
     },
 
     {
       path: "/movies",
       name: "movies",
-      component: () => import("./views/movies/Movies.vue")
+      component: () => import("./views/movies/Movies.vue"),
+      beforeEnter: (to, from, next) => {
+        const user = StorageService.getUserSession();
+        /* eslint-disable-next-line */
+        if (!!user) next();
+        else next("/");
+      }
     },
 
     {
       path: "/player/:id",
       name: "player",
-      component: () => import("./views/player/Player.vue")
+      component: () => import("./views/player/Player.vue"),
+      beforeEnter: (to, from, next) => {
+        const user = StorageService.getUserSession();
+        /* eslint-disable-next-line */
+        if (!!user) next();
+        else next("/");
+      }
     },
 
     {
@@ -44,3 +69,5 @@ export default new Router({
     }
   ]
 });
+
+export default router;

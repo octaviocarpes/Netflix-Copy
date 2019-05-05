@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "../../config/config.dev.js";
 import Parser from "../parsers";
-const BASE_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20`;
+const BASE_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5`;
 
 export default {
   async getMovies() {
