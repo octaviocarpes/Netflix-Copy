@@ -50,15 +50,19 @@ export default {
           ]
         },
         options: {
-        scales: {
-            yAxes: [{
-              ticks: {
+          scales: {
+            yAxes: [
+              {
+                ticks: {
                   beginAtZero: true
+                }
               }
-            }],
-            xAxes: [{
-              barThickness: 50
-            }]
+            ],
+            xAxes: [
+              {
+                barThickness: 50
+              }
+            ]
           }
         }
       });

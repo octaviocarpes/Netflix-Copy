@@ -8,5 +8,5 @@ export const ACCESS_METRICS = {
 
   getRegisters() {
     return _.get(Storage.getStorage(), "METRICS.REGISTER_METRICS.registers", 0);
-  },
+  }
 };
