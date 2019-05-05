@@ -8,7 +8,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "cypress:open": "yarn build && cd .. && docker build --tag=se-test . && cd netflix-test && concurrently \"docker run -p 8080:8080 se-test\" \"cypress open\""
+    "cypress:open": "concurrently \"yarn start\" \"cypress open\""
   },
   "dependencies": {
     "chart.js": "^2.8.0",
