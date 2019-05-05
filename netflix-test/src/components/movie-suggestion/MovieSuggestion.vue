@@ -7,7 +7,7 @@
       height="100%"
       allowfullscreen
     ></iframe>
-    <h2 class="title" @click="goToPlayer()">{{ movie.title }}</h2>
+    <h2 class="movie-title" @click="goToPlayer()">{{ movie.title }}</h2>
   </div>
 </template>
 
