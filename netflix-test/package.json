@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "export NODE_ENV=dev && yarn serve",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 9000",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",

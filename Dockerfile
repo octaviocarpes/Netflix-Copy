@@ -19,7 +19,7 @@ RUN mkdir -p /var/log/app_engine
 RUN mkdir -p /usr/share/nginx/www/_ah && \
     echo "healthy" > /usr/share/nginx/www/_ah/health
 
-EXPOSE 8080:8080
+EXPOSE 9000:9000
 
 # Finally, all static assets.
 ADD netflix-test/dist/ /usr/share/nginx/www/

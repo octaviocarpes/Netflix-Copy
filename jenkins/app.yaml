@@ -1,3 +1,0 @@
-service: jenkins
-runtime: java
-env: standard
