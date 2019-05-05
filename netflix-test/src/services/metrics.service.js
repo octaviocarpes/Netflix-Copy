@@ -13,7 +13,7 @@ export default {
     Storage.saveStorage(storage);
   },
 
-  addUserMoviesMetric(movieId) {
+  addUserMoviesMetric(movie) {
     const user = Storage.getUserSession();
     let storage = Storage.getStorage();
     const userMetric = findUserMetric(
@@ -21,10 +21,10 @@ export default {
       storage.METRICS.USER_METRICS.users
     );
     if (userMetric) {
-      pushMetricToUser(user.id, movieId);
+      pushMetricToUser(user.id, movie);
     } else {
       addUserToMetrics(user);
-      pushMetricToUser(user.id, movieId);
+      pushMetricToUser(user.id, movie);
     }
   }
 };
@@ -42,23 +42,21 @@ const addUserToMetrics = user => {
   Storage.saveStorage(storage);
 };
 
-const pushMetricToUser = (userId, movieId) => {
+const pushMetricToUser = (userId, movie) => {
   let storage = Storage.getStorage();
-  let metric = storage.METRICS.USER_METRICS.users.find(
-    metric => metric.userId == userId
-  );
+  let metric = findUserMetric(userId, storage.METRICS.USER_METRICS.users);
 
-  if (metric.movies.find(movie => movie.movieId == movieId)) {
+  if (metric.movies.find(metricMovie => metricMovie.movie.id == movie.id)) {
     storage.METRICS.USER_METRICS.users
       .find(metric => metric.userId == userId)
-      .movies.find(movie => movie.movieId == movieId).count++;
+      .movies.find(metricMovie => metricMovie.movie.id == movie.id).count++;
 
     Storage.saveStorage(storage);
   } else {
     storage.METRICS.USER_METRICS.users
       .find(metric => metric.userId == userId)
       .movies.push({
-        movieId,
+        movie,
         count: 1
       });
 

@@ -1,7 +1,7 @@
 <template>
   <div class="player-container">
     <div class="back-to-movies" @click="goToMovies()">
-      <img :src="require(`../../assets/img/back-arrow.svg`)" alt="back icon">
+      <img :src="require('../../assets/img/back-arrow.svg')" alt="back icon" />
       <p>Back to Movies</p>
     </div>
     <iframe
@@ -20,7 +20,9 @@ export default {
 
   computed: {
     movieURL() {
-      return `https://www.youtube.com/embed/${this.$route.params.id}?autoplay=1`
+      return `https://www.youtube.com/embed/${
+        this.$route.params.id
+      }?autoplay=1`;
     }
   },
 
@@ -33,36 +35,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.player-container {
-  height: 100%;
-  width: 100%;
-
-  .back-to-movies {
-    
-    display: flex;
-
-    position: absolute;
-    z-index: 999;
-
-    img {
-      width: 100px;
-      height: 100px;
-
-      padding-top: 35px;
-    }
-
-    p {
-      padding-top: 76px;
-      color: white;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
+@import "./style.scss";
 </style>

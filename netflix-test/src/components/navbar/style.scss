@@ -35,6 +35,13 @@
     margin-right: 50px;
     margin-top: 5px;
     color: white;
+
+    p {
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
   }
 
 }
