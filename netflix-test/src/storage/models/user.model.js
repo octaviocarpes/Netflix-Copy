@@ -2,6 +2,7 @@ export default class User {
   constructor(username, password) {
     this.username = username;
     this.password = password;
+    this.id = btoa(username + password);
   }
 
   getUsername() {
@@ -10,5 +11,9 @@ export default class User {
 
   getPassword() {
     return this.password;
+  }
+
+  getId() {
+    return this.id;
   }
 }

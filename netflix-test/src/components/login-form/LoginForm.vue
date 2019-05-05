@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import StorageService from "@/storage";
-import { METRICS_KEY } from "@/constants/keys";
+import Storage from "@/storage";
+import MetricService from "@/services/metrics.service";
 import store from "@/store";
 
 export default {
@@ -64,36 +64,31 @@ export default {
     },
 
     registerUser() {
-      StorageService.registerUser(this.login, this.password);
-      this.saveRegisterMetrics();
+      Storage.registerUser(this.login, this.password);
+      MetricService.addRegisterMetric();
       this.toggleRegister();
     },
 
     performLogin() {
-      const user = StorageService.getUser(btoa(this.login + this.password));
+      const user = Storage.getUser(btoa(this.login + this.password));
       /* eslint-disable-next-line */
       if (!!user) {
         store.dispatch("PERFORM_LOGIN", user);
-        this.saveLoginMetrics();
+        MetricService.addLoginMetric();
+        this.saveUserSession(user);
         this.$router.push("/movies");
-      } else this.showLoginError();
+      } else {
+        this.showLoginError();
+      }
+    },
+
+    saveUserSession(user) {
+      Storage.saveUserSession(user);
     },
 
     showLoginError() {
       this.error = true;
       setTimeout(() => (this.error = false), 5000);
-    },
-
-    saveRegisterMetrics() {
-      let Metric = StorageService.getMetrics(METRICS_KEY);
-      Metric.REGISTER_METRICS.registers++;
-      StorageService.registerMetrics(METRICS_KEY, Metric);
-    },
-
-    saveLoginMetrics() {
-      let Metric = StorageService.getMetrics(METRICS_KEY);
-      Metric.LOGIN_METRICS.logins++;
-      StorageService.registerMetrics(METRICS_KEY, Metric);
     }
   }
 };

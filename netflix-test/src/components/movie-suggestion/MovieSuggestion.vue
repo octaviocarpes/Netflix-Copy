@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import MetricService from "@/services/metrics.service";
+
 export default {
   name: "MovieSuggestion",
 
@@ -29,6 +31,7 @@ export default {
 
   methods: {
     goToPlayer() {
+      MetricService.addUserMoviesMetric(this.movie.id);
       this.$router.push(`/player/${this.movie.id}`);
     }
   }

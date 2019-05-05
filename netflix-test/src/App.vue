@@ -6,11 +6,9 @@
 </template>
 
 <script>
+import store from "@/store";
 import Loader from "@/components/loader/Loader";
-import { METRICS_KEY } from "@/constants/keys";
 import StorageService from "@/storage";
-import Metrics from "@/storage/models/metrics.model";
-const { metrics } = Metrics;
 
 export default {
   components: {
@@ -18,8 +16,10 @@ export default {
   },
 
   mounted() {
-    if (!StorageService.getMetrics(METRICS_KEY))
-      StorageService.registerMetrics(METRICS_KEY, metrics);
+    if (!StorageService.getStorage()) StorageService.initiateStorage();
+
+    const user = StorageService.getUserSession();
+    if (user) store.dispatch("PERFORM_LOGIN", user);
   }
 };
 </script>
