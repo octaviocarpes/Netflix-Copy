@@ -11,19 +11,24 @@ export const USERS_METRICS = {
   },
 
   getUsersNames() {
-    return _.get(Storage.getStorage(), "METRICS.USER_METRICS.users", [])
-    .map(metric => metric.user.username);
+    return _.get(Storage.getStorage(), "METRICS.USER_METRICS.users", []).map(
+      metric => metric.user.username
+    );
   },
 
   getUsersCount() {
-    return _.get(Storage.getStorage(), "METRICS.USER_METRICS.users", [])
-    .map(user => user.totalViews);
+    return _.get(Storage.getStorage(), "METRICS.USER_METRICS.users", []).map(
+      user => user.totalViews
+    );
   },
 
   getTopUser() {
-    return _.get(Storage.getStorage(), "METRICS.USER_METRICS.users", [])
-    .reduce((previousTopUser, topUser) => {
-      return previousTopUser.totalViews > topUser.totalViews ? previousTopUser : topUser;
-    })
+    return _.get(Storage.getStorage(), "METRICS.USER_METRICS.users", []).reduce(
+      (previousTopUser, topUser) => {
+        return previousTopUser.totalViews > topUser.totalViews
+          ? previousTopUser
+          : topUser;
+      }
+    );
   }
 };

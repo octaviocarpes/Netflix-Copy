@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccessChart.spec.js has the expected html structure 1`] = `
+<div
+  class="access-chart-container"
+>
+  <canvas
+    id="access-chart"
+  />
+   
+  <div
+    class="access-data"
+  >
+    <h2>
+      Logins:
+    </h2>
+     
+    <h3>
+      0
+    </h3>
+  </div>
+   
+  <div
+    class="access-data"
+  >
+    <h2>
+      Registers:
+    </h2>
+     
+    <h3>
+      0
+    </h3>
+  </div>
+</div>
+`;

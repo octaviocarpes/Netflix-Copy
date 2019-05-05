@@ -16,7 +16,7 @@
         placeholder="Password"
         id="login-form-password-input"
       />
-      <button tabindex="3" type="submit">
+      <button id="login-form-button" tabindex="3" type="submit">
         {{ register ? "Sign Up" : "Sign In" }}
       </button>
     </form>

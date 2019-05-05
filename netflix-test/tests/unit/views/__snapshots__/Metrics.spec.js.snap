@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Metrics.spec.js has the expected html structure 1`] = `
+<div
+  class="metrics-container"
+>
+  <nav>
+    <div
+      class="nav-bar-container"
+    >
+      <div
+        class="nav-bar-content-left"
+      >
+        <div
+          class="header-logo"
+        >
+          <h1>
+            NIETFLIX
+          </h1>
+        </div>
+         
+        <div
+          class="links"
+        >
+          <ul>
+            <li>
+              <router-link
+                to="movies"
+              >
+                Movies
+              </router-link>
+            </li>
+             
+            <li>
+              <router-link
+                to="profile"
+              >
+                Profile
+              </router-link>
+            </li>
+             
+            <li>
+              <router-link
+                to="metrics"
+              >
+                Metrics
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+       
+      <div
+        class="nav-bar-content-right"
+      >
+        <div
+          class="user"
+        >
+          <img
+            alt="profile icon"
+            src=""
+          />
+           
+          <p>
+            
+          </p>
+        </div>
+         
+        <p>
+          Logout
+        </p>
+      </div>
+    </div>
+  </nav>
+   
+  <h1>
+    Metrics
+  </h1>
+   
+  <div
+    class="metrics-content"
+  >
+    <div
+      class="top-users"
+    >
+      <h1>
+        Top Users
+      </h1>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="top-movies"
+    >
+      <h1>
+        Top Movies
+      </h1>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="application-access"
+    >
+      <h1>
+        Application Access
+      </h1>
+       
+      <div
+        class="access-chart-container"
+      >
+        <canvas
+          id="access-chart"
+        />
+         
+        <div
+          class="access-data"
+        >
+          <h2>
+            Logins:
+          </h2>
+           
+          <h3>
+            0
+          </h3>
+        </div>
+         
+        <div
+          class="access-data"
+        >
+          <h2>
+            Registers:
+          </h2>
+           
+          <h3>
+            0
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

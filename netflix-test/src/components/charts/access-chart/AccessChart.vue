@@ -2,10 +2,12 @@
   <div class="access-chart-container">
     <canvas id="access-chart"></canvas>
     <div class="access-data">
-      <h2>Logins:</h2><h3>{{ logins }}</h3>
+      <h2>Logins:</h2>
+      <h3>{{ logins }}</h3>
     </div>
     <div class="access-data">
-      <h2>Registers:</h2><h3>{{ registers }}</h3>
+      <h2>Registers:</h2>
+      <h3>{{ registers }}</h3>
     </div>
   </div>
 </template>
@@ -33,7 +35,7 @@ export default {
               label: "Access Data",
               backgroundColor: this.generateColors(),
               borderColor: "rgb(255, 255, 255)",
-              data: [ACCESS_METRICS.getLogins(), ACCESS_METRICS.getRegisters()],
+              data: [ACCESS_METRICS.getLogins(), ACCESS_METRICS.getRegisters()]
             }
           ]
         }
@@ -41,7 +43,7 @@ export default {
     },
 
     generateColors() {
-      return [this.random_rgba(), this.random_rgba()]
+      return [this.random_rgba(), this.random_rgba()];
     },
 
     random_rgba() {
@@ -61,7 +63,7 @@ export default {
       return ACCESS_METRICS.getRegisters();
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
