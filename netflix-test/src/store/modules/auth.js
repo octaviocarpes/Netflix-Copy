@@ -12,6 +12,8 @@ export default {
   actions: {
     PERFORM_LOGIN: ({ commit }, payload) => {
       commit("SET_USER", payload);
-    }
+    },
+
+    LOGOUT: ({ commit }) => commit("SET_USER", null)
   }
 };

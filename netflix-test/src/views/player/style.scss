@@ -1,0 +1,32 @@
+.player-container {
+  height: 100%;
+  width: 100%;
+
+  .back-to-movies {
+    
+    display: flex;
+
+    position: absolute;
+    z-index: 999;
+
+    img {
+      width: 100px;
+      height: 100px;
+
+      padding-top: 35px;
+    }
+
+    p {
+      padding-top: 76px;
+      color: white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

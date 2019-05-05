@@ -14,7 +14,14 @@ export default {
           logins: 0
         },
         USER_METRICS: {
-          users: []
+          users: [],
+          topUser: null,
+          totalUsers: 0
+        },
+        MOVIES_METRICS: {
+          movies: [],
+          totalViews: 0,
+          topMovie: null
         }
       }
     });
@@ -48,8 +55,17 @@ export default {
     return JSON.parse(window.sessionStorage.getItem("SESSION"));
   },
 
+  endUserSession() {
+    window.sessionStorage.setItem("SESSION", null);
+  },
+
   getMetrics() {
     const storage = this.getStorage();
     return storage.METRICS;
+  },
+
+  getUsers() {
+    const storage = this.getStorage();
+    return storage.USERS;
   }
 };

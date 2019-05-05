@@ -29,8 +29,14 @@ export default {
 
   methods: {
     goToPlayer() {
-      MetricService.addUserMoviesMetric(this.movie.id);
+      this.executeMetrics();
       this.$router.push(`/player/${this.movie.id}`);
+    },
+
+    executeMetrics() {
+      MetricService.addUserMoviesMetric(this.movie);
+      MetricService.addMovieMetric(this.movie);
+      MetricService.setTopMovie();
     }
   }
 };

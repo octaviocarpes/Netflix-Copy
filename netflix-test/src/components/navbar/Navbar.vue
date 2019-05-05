@@ -11,14 +11,40 @@
           </ul>
         </div>
       </div>
-      <div class="nav-bar-content-right"><p>Logout</p></div>
+      <div class="nav-bar-content-right">
+        <div class="user">
+          <img
+            :src="require('../../assets/img/profile-icon.jpg')"
+            alt="profile icon"
+          />
+          <p>{{ user.username }}</p>
+        </div>
+        <p @click="logout">Logout</p>
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
+import store from "@/store";
+import Storage from "@/storage";
+
 export default {
-  name: "Navbar"
+  name: "Navbar",
+
+  methods: {
+    logout() {
+      store.dispatch("LOGOUT");
+      Storage.endUserSession();
+      this.$router.push("/");
+    }
+  },
+
+  computed: {
+    user() {
+      return store.state.auth.user;
+    }
+  }
 };
 </script>
 
