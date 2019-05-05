@@ -48,8 +48,17 @@ export default {
     return JSON.parse(window.sessionStorage.getItem("SESSION"));
   },
 
+  endUserSession() {
+    window.sessionStorage.setItem("SESSION", null);
+  },
+
   getMetrics() {
     const storage = this.getStorage();
     return storage.METRICS;
+  },
+
+  getUsers() {
+    const storage = this.getStorage();
+    return storage.USERS;
   }
 };
