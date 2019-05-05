@@ -7,11 +7,13 @@
       height="100%"
       allowfullscreen
     ></iframe>
-    <h2 class="title" @click="goToPlayer()">{{ movie.title }}</h2>
+    <h2 class="movie-title" @click="goToPlayer()">{{ movie.title }}</h2>
   </div>
 </template>
 
 <script>
+import MetricService from "@/services/metrics.service";
+
 export default {
   name: "MovieSuggestion",
 
@@ -29,6 +31,7 @@ export default {
 
   methods: {
     goToPlayer() {
+      MetricService.addUserMoviesMetric(this.movie.id);
       this.$router.push(`/player/${this.movie.id}`);
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!!movie" class="movie-thumbnail-container">
+  <div v-if="!!movie" class="movie-thumbnail-container" @click="goToPlayer()">
     <img :src="movieThumbnail" alt="Movie Thumbnail" />
     <h4>{{ movieTitle }}</h4>
   </div>
@@ -7,6 +7,7 @@
 
 <script>
 import _ from "lodash";
+import MetricService from "@/services/metrics.service";
 export default {
   name: "MovieThubmnail",
 
@@ -23,6 +24,13 @@ export default {
 
     movieTitle() {
       return _.get(this.movie, "title", "Movie Title");
+    }
+  },
+
+  methods: {
+    goToPlayer() {
+      MetricService.addUserMoviesMetric(this.movie.id);
+      this.$router.push(`/player/${this.movie.id}`);
     }
   }
 };

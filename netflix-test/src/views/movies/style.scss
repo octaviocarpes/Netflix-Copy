@@ -35,6 +35,7 @@
         margin: 10px;
 
         &:hover {
+          z-index: 999;
           animation: scale .5s forwards;
           cursor: pointer;
         }
