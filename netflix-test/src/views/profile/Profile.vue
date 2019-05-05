@@ -9,30 +9,40 @@
             <img
               :src="require('../../assets/img/profile-icon.jpg')"
               alt="logo"
-              :class="{
-                active: user.username == sessionUser.username,
-                inactive: user.username != sessionUser.username
-              }"
+              :class="[user.id == sessionUser.id ? 'active' : 'inactive']"
             />
             <p>{{ user.username }}</p>
-            <!-- TODO: add dynamic classes to user in session -->
           </div>
         </li>
       </ul>
+      <div v-if="!!moviesWatched" class="last-movies-watched">
+        <h1>Last movies watched</h1>
+        <ul>
+          <li v-for="movie in moviesWatched" :key="movie.id">
+            <MovieThumbnail :movie="movie" />
+          </li>
+        </ul>
+      </div>
+      <div v-if="!moviesWatched" class="no-movies-watched">
+        <h1>This user has not watched any movies yet.</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import _ from "lodash"
 import store from "@/store";
 import Navbar from "@/components/navbar/Navbar";
 import Storage from "@/storage";
+import MovieThumbnail from "@/components/movie-thumbnail/MovieThumbnail";
 
 export default {
   name: "Profile",
 
   components: {
-    Navbar
+    Navbar,
+    MovieThumbnail
   },
 
   computed: {
@@ -41,7 +51,17 @@ export default {
     },
 
     sessionUser() {
-      return Storage.getUserSession();
+      return store.state.auth.user;
+    },
+
+    moviesWatched() {
+      const storage = Storage.getStorage();
+      const user = store.state.auth.user;
+      const metrics = this.getUserMetrics();
+      if (!!metrics) {
+        if (metrics.movies.length >= 5) return _.reverse(metrics.movies.map(movie => movie.movie)).slice(0,5);
+        else return !!metrics.movies.length ? _.reverse(metrics.movies.map(movie => movie.movie)) : null;
+      } return false;
     }
   },
 
@@ -50,6 +70,15 @@ export default {
       Storage.endUserSession();
       Storage.saveUserSession(user);
       store.dispatch("PERFORM_LOGIN", user);
+    },
+
+    getUserMetrics() {
+      const storage = Storage.getStorage();
+      const user = store.state.auth.user;
+      const usersMetrics = _.get(storage, 'METRICS.USER_METRICS.users', null);
+      if (!!usersMetrics.length) {
+        return _.find(usersMetrics, metric => { return metric.userId == user.id });
+      } else return { movies: [] };
     }
   }
 };
@@ -92,6 +121,18 @@ export default {
         &:hover {
           cursor: pointer;
         }
+      }
+    }
+  }
+
+  .last-movies-watched {
+    ul {
+      display: flex;
+      justify-content: center;
+      overflow-x: scroll;
+
+      li {
+        margin: 10px;
       }
     }
   }
