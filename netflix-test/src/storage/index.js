@@ -14,7 +14,14 @@ export default {
           logins: 0
         },
         USER_METRICS: {
-          users: []
+          users: [],
+          topUser: null,
+          totalUsers: 0
+        },
+        MOVIES_METRICS: {
+          movies: [],
+          totalViews: 0,
+          topMovie: null
         }
       }
     });

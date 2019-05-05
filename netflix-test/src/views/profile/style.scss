@@ -37,6 +37,18 @@
       }
     }
   }
+
+  .last-movies-watched {
+    ul {
+      display: flex;
+      justify-content: center;
+      overflow-x: scroll;
+
+      li {
+        margin: 10px;
+      }
+    }
+  }
 }
 
 .active {

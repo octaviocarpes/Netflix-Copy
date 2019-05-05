@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import _ from "lodash"
+import _ from "lodash";
 import store from "@/store";
 import Navbar from "@/components/navbar/Navbar";
 import Storage from "@/storage";
@@ -55,13 +55,19 @@ export default {
     },
 
     moviesWatched() {
-      const storage = Storage.getStorage();
-      const user = store.state.auth.user;
       const metrics = this.getUserMetrics();
-      if (!!metrics) {
-        if (metrics.movies.length >= 5) return _.reverse(metrics.movies.map(movie => movie.movie)).slice(0,5);
-        else return !!metrics.movies.length ? _.reverse(metrics.movies.map(movie => movie.movie)) : null;
-      } return false;
+      if (metrics) {
+        if (metrics.movies.length >= 5)
+          return _.reverse(metrics.movies.map(movie => movie.movie)).slice(
+            0,
+            5
+          );
+        else
+          return metrics.movies.length
+            ? _.reverse(metrics.movies.map(movie => movie.movie))
+            : null;
+      }
+      return false;
     }
   },
 
@@ -75,9 +81,11 @@ export default {
     getUserMetrics() {
       const storage = Storage.getStorage();
       const user = store.state.auth.user;
-      const usersMetrics = _.get(storage, 'METRICS.USER_METRICS.users', null);
-      if (!!usersMetrics.length) {
-        return _.find(usersMetrics, metric => { return metric.userId == user.id });
+      const usersMetrics = _.get(storage, "METRICS.USER_METRICS.users", null);
+      if (usersMetrics.length) {
+        return _.find(usersMetrics, metric => {
+          return metric.user.id == user.id;
+        });
       } else return { movies: [] };
     }
   }
@@ -85,64 +93,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.profile-container {
-  width: 100%;
-  height: 100%;
-
-  h1 {
-    color: white;
-  }
-
-  .profiles {
-    position: relative;
-    top: 50px;
-
-    ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-
-      li {
-        margin: 10px;
-
-        img {
-          width: 100px;
-          height: 100px;
-
-          &:hover {
-            border: 5px solid white;
-          }
-        }
-
-        p {
-          color: white;
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  .last-movies-watched {
-    ul {
-      display: flex;
-      justify-content: center;
-      overflow-x: scroll;
-
-      li {
-        margin: 10px;
-      }
-    }
-  }
-}
-
-.active {
-  border: 5px solid white;
-}
-
-.inactive {
-  border: none;
-}
+@import "./style.scss";
 </style>
