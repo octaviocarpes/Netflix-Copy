@@ -5,9 +5,9 @@
         <div class="header-logo"><h1>NIETFLIX</h1></div>
         <div class="links">
           <ul>
-            <li><router-link to="movies">Movies</router-link></li>
-            <li><router-link to="profile">Profile</router-link></li>
-            <li><router-link to="metrics">Metrics</router-link></li>
+            <li id="movies-link"><router-link to="movies">Movies</router-link></li>
+            <li id="profile-link"><router-link to="profile">Profile</router-link></li>
+            <li id="metrics-link"><router-link to="metrics">Metrics</router-link></li>
           </ul>
         </div>
       </div>
