@@ -41,6 +41,7 @@ exports[`Login.spec.js has the expected html structure 1`] = `
       />
        
       <button
+        id="login-form-button"
         tabindex="3"
         type="submit"
       >

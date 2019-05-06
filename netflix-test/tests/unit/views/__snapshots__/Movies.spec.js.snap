@@ -23,7 +23,9 @@ exports[`Movies.spec.js has the expected html structure 1`] = `
           class="links"
         >
           <ul>
-            <li>
+            <li
+              id="movies-link"
+            >
               <router-link
                 to="movies"
               >
@@ -31,7 +33,9 @@ exports[`Movies.spec.js has the expected html structure 1`] = `
               </router-link>
             </li>
              
-            <li>
+            <li
+              id="profile-link"
+            >
               <router-link
                 to="profile"
               >
@@ -39,7 +43,9 @@ exports[`Movies.spec.js has the expected html structure 1`] = `
               </router-link>
             </li>
              
-            <li>
+            <li
+              id="metrics-link"
+            >
               <router-link
                 to="metrics"
               >
