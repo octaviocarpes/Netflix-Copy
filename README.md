@@ -47,18 +47,18 @@ To keep the data saved locally i used a lib called `local-storage` and created a
 This schema is what persists the data. Also i created a `Storage`, which is the feature in charge of saving new users, and their sessions, and storing the metrics.
 
 #### Metrics
-The metrics are managed by two types of files, the `metrics.service` and the `metrics.controller`, the `metrics.service` is responsible for telling the `Storage` to store the necessary metric data, while the `metrics.controller` is responsible to ask the `Storage` for data and manipulate it as necessary, something like retriving the movie with most views.
+The metrics are managed by two types of files, the `metrics.service` and the `metrics.controller`, the `metrics.service` is responsible for telling the `Storage` to store the necessary metric data, while the `metrics.controller` is responsible to ask the `Storage` for data and manipulate it as necessary, something like retrieving the movie with most views.
 
 #### API Data
 To create an experience similar to a Netflix app, i used the Youtube Data API v3 to get the trailers and movies that the users can see throughout the app.
 
 #### State Management and Data Flow
-The state management was made with Vuex, the whole data flow begins in the requests made by the components, when the response arrive the data is then passed to the Vuex, making it flow through only one direction.
+The state management was made with Vuex, the whole data flow begins in the requests made by the components and, when the response arrive, the data is then passed to the Vuex, making it flow through only one direction.
 
 #### Good things!
 While doing this test i have learned a lot of new things, i have never used the `localStorage`, except for saving a user token or something like that, as so much that i had used in this project, it was kinda messy but i tried to organize it in some way i would not get so lost. 
 
-Continuous Integration with Jenkins and Github, after some time i managed to make the deploymen automatic, when ther is a commit in the master branch the jenkinst starts the deployment job.
+Continuous Integration with Jenkins and Github, after some time i managed to make the deployment automatic, when there is a commit in the master branch the webhook i created notify the Jenkins so it can start the deployment job.
 Realizing that i am capable of creating an webapp like this.
 
 #### Pain points
