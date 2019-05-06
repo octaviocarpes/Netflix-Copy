@@ -15,6 +15,7 @@ The stack used to this test is:
     <li>Sass</li>
     <li>ESLint</li>
     <li>Jest</li>
+    <li>Cypress</li>
   </ul>
 The challenge: create a Netflix clone making the users data persistent and creating a metrics page to view all the metrics data gathered.
 
@@ -32,5 +33,5 @@ These are the requirements to pass in the exam:
   </ul>
 
 To keep the data saved locally i used a lib called `local-storage` and created a "Schema" for storing the users and movies data.
-This schema is what persists the data. 
+This schema is what persists the data.
 </p>
