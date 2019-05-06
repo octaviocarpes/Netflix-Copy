@@ -4,6 +4,12 @@ ilegra's Software Engineer test.
 #### To run the project locally:
 `cd netflix-test && yarn install && yarn start`
 
+#### To build for production
+`yarn build`
+
+#### To access the production site
+<a href="http://34.74.246.167:9000/">http://34.74.246.167:9000/</a>
+
 #### Documentation:
 
 <p>
