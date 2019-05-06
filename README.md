@@ -30,4 +30,7 @@ These are the requirements to pass in the exam:
     <li>Deployment with Docker;</li>
     <li>CI with jenkins;</li>
   </ul>
+
+To keep the data saved locally i used a lib called `local-storage` and created a "Schema" for storing the users and movies data.
+This schema is what persists the data. 
 </p>
