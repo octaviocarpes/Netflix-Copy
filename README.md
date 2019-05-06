@@ -36,7 +36,7 @@ These are the requirements to pass in the exam:
     <li>Create and manage all the data structures in memory, which means it need to be persistent;</li>
     <li>Tests, unit and E2E;</li>
     <li>Deployment with Docker;</li>
-    <li>CI with jenkins;</li>
+    <li>CI with Jenkins;</li>
   </ul>
 
 #### CI and Hosting
